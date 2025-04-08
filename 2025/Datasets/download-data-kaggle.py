@@ -3,8 +3,12 @@ import os
 from kaggle.api.kaggle_api_extended import KaggleApi # Correct import
 
 # --- Configuration ---
-dataset_id = 'atharvasoundankar/global-cybersecurity-threats-2015-2024'
-# Define path relative to where the script is run, or use absolute paths
+
+# cyber security threats, kaggle 
+day7 = 'atharvasoundankar/global-cybersecurity-threats-2015-2024'
+
+
+dataset_id = day7 # CHANGE THIS FOR DIF DAYS
 download_path = '.'
 
 # --- Main script ---
