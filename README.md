@@ -1,4 +1,4 @@
-# Make sure you have the kaggle CLI installed and authenticated (~/.kaggle/kaggle.json set up).
+ Make sure you have the kaggle CLI installed and authenticated (~/.kaggle/kaggle.json set up) before using download script
 
 
 My collection of Data visualizations for the [#30DayChartChallenge](https://github.com/30DayChartChallenge). Daily data - personal challenge. 
