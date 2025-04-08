@@ -1,34 +1,55 @@
-const width = 640;
-const height = 400;
-const marginTop = 20;
-const marginRight = 20;
-const marginBottom = 30;
-const marginLeft = 40;
+// Inside: 2025/scripts/YOUR_GRAPH_NAME/script.js
 
-// Declare the x (horizontal position) scale.
-const x = d3.scaleUtc()
-    .domain([new Date("2023-01-01"), new Date("2024-01-01")])
-    .range([marginLeft, width - marginRight]);
+(function() { // Start of IIFE - creates a private scope
 
-// Declare the y (vertical position) scale.
-const y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([height - marginBottom, marginTop]);
+    // Get container reference INSIDE the IIFE,
+    // ensuring it uses the container present when this script runs
+    const chartContainer = document.getElementById('chartContainer');
+    if (!chartContainer) {
+        console.error("Error inside graph script: Container div with id 'chartContainer' not found.");
+        return;
+    }
 
-// Create the SVG container.
-const svg = d3.create("svg")
-    .attr("width", width)
-    .attr("height", height);
+    // --- Your existing chart code goes here ---
+    const width = 640;
+    const height = 400;
+    const marginTop = 20;
+    const marginRight = 20;
+    const marginBottom = 30;
+    const marginLeft = 40;
 
-// Add the x-axis.
-svg.append("g")
-    .attr("transform", `translate(0,${height - marginBottom})`)
-    .call(d3.axisBottom(x));
+    // Declare the x (horizontal position) scale.
+    const x = d3.scaleUtc()
+        .domain([new Date("2023-01-01"), new Date("2024-01-01")]) // Adjust domain as needed per chart
+        .range([marginLeft, width - marginRight]);
 
-// Add the y-axis.
-svg.append("g")
-    .attr("transform", `translate(${marginLeft},0)`)
-    .call(d3.axisLeft(y));
+    // Declare the y (vertical position) scale.
+    const y = d3.scaleLinear()
+        .domain([0, 100]) // Adjust domain as needed per chart
+        .range([height - marginBottom, marginTop]);
 
-// Append the SVG element.
-chartContainer.append(svg.node());
+    // Create the SVG container.
+    const svg = d3.create("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Add the x-axis.
+    svg.append("g")
+        .attr("transform", `translate(0,${height - marginBottom})`)
+        .call(d3.axisBottom(x));
+
+    // Add the y-axis.
+    svg.append("g")
+        .attr("transform", `translate(${marginLeft},0)`)
+        .call(d3.axisLeft(y));
+
+    // --- Add your specific chart drawing logic here (lines, bars, etc.) ---
+    // e.g., svg.append("path").datum(data)....
+
+
+    // Append the SVG element to the container.
+    chartContainer.append(svg.node());
+
+    console.log('Chart script executed and SVG appended.'); // Optional: for debugging
+
+})(); // End of IIFE - execute the function immediately

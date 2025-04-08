@@ -1,0 +1,1 @@
+Make sure you have the kaggle CLI installed and authenticated (~/.kaggle/kaggle.json set up).

@@ -1,0 +1,13 @@
+.tooltip {
+    position: absolute; /* Needed for positioning near the mouse */
+    text-align: center;
+    padding: 6px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px solid #333;
+    border-radius: 4px;
+    pointer-events: none; /* Important: Tooltip shouldn't block mouse events on elements underneath */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.2s; /* Smooth fade effect */
+    white-space: nowrap; /* Prevent multi-line wrapping if not desired */
+  }
