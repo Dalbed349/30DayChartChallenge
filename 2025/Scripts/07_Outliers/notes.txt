@@ -1,0 +1,2 @@
+Color scale 
+hide axis 
