@@ -13,5 +13,5 @@ All Visualizations made with d3.js
 
 09. Cleveland Dot Plot - USA Vehicle Miles of Travel on Urban Insterstates per State -- DoT Federal Highway Administration  ![day9](/2025/captures/09_1_Screenshot_barbell.png) [Data Source](https://catalog.data.gov/dataset/vehicle-miles-of-travel-by-functional-system-and-state-1980-2023-vm-2#sec-dates)
 
+12. Map - USA CDC Reporting --- No physical activity for leisure.   ![day12](/2025/captures/mapGif.gif) [Data Source](https://data.cdc.gov/api/views/hn4x-zwk7/rows.json?accessType=DOWNLOAD)
 
-2025\captures\09_1_Screenshot_barbell.png

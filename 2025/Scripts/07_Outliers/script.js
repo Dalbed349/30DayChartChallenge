@@ -144,7 +144,7 @@
         sumstat.sort((a, b) => {
             // Handle potential NaN values 
             const medianA = a.value.median ?? -Infinity; 
-            const medianB = b.value.median ?? -Infinity;
+            const medianB = b.value.median ?? -Infinity;8
             return medianA - medianB; 
         });
 // --- Scales ---

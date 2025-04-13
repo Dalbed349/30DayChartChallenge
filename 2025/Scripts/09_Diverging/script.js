@@ -18,7 +18,7 @@
         return;
     }
 
-    // --- Your existing chart code goes here ---
+    // ---  ---
     const dataUrl = '2025/Datasets/Vehicle_Miles_of_Travel_by_Functional_System_and_State__1980_-_2023__VM-2_.csv'
     const margin = {top: 150, right: 180, bottom: 100, left: 150};
     const fullWidth =1080; // Total width of SVG
@@ -191,7 +191,7 @@ g.selectAll(".dumbbell-line")
     .style("fill", "#69b3a2");
 
 // Circles of variable 2 *
-g.selectAll(".circle-2023") /
+g.selectAll(".circle-2023") 
     .data(plotData, d => d.group) //
     .enter()
     .append("circle")
