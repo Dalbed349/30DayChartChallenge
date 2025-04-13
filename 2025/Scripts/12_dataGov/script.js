@@ -7,9 +7,9 @@
         }
         // ---  ---
         const dataUrl = '2025/Scripts/12_dataGov/cdc_data_d3.csv'
-        const margin = {top: 150, right: 180, bottom: 100, left: 150};
-        const fullWidth =1580; // Total width of SVG
-        const fullHeight = 1000; 
+        const margin = {top: 150, right: 150, bottom: 100, left:150};
+        const fullWidth =1080; // Total width of SVG
+        const fullHeight = 800; 
         const width = fullWidth - margin.left - margin.right; // Chart area width
         const height = fullHeight - margin.top - margin.bottom; 
         // 
@@ -74,13 +74,10 @@
         //     .style('margin-bottom', '10px')
         //     .text('Year: Loading...'); // Initial text
     // -----------------------------------------------------------------
-    const projection = d3.geoAlbersUsa().fitSize([width, height], {type: "Sphere"}); // Auto-fit to SVG size
-    const pathGenerator = d3.geoPath().projection(projection);
     let yearIndex = 0;
     let sortedYears = [];
     let animationInterval = null;
-    const intervalDuration = 500;
-
+    const intervalDuration = 2000;
     const targetQuestion = "Percent of adults who engage in no leisure-time physical activity";
     const targetStratification = "Overall"; 
 
@@ -93,6 +90,10 @@
         d3.csv(dataUrl) 
     ]).then(([us, cdcData]) => {
         console.log("Data loaded:", us, cdcData.length, "rows");
+        const statesGeoJSON = topojson.feature(us, us.objects.states);
+        console.log("GeoJSON features:", statesGeoJSON.features.length);
+        const projection = d3.geoAlbersUsa().fitSize([width, height], statesGeoJSON); // Auto-fit to SVG size
+        const pathGenerator = d3.geoPath().projection(projection);
 
         // --- Process CDC Data ---
         const dataMap = new Map();
@@ -132,11 +133,9 @@
 
         // --- Convert TopoJSON to GeoJSON ---
         // The TopoJSON file has state geometries. 'states' is the object key within the TopoJSON file.
-        const statesGeoJSON = topojson.feature(us, us.objects.states);
-        console.log("GeoJSON features:", statesGeoJSON.features.length);
 
         // --- Draw the Map ---
-        svg.append("g")
+        g.append("g")
             .attr("class", "states")
             .selectAll("path")
             .data(statesGeoJSON.features)
@@ -146,7 +145,7 @@
 
         // --- Draw State Borders ---
         // Use topojson.mesh to get interior borders between states
-        svg.append("path")
+        g.append("path")
             .datum(topojson.mesh(us, us.objects.states, (a, b) => a !== b))
             .attr("fill", "none")
             .attr("stroke", "#fff") // White borders
@@ -158,7 +157,7 @@
         const legendHeight = 8; // Height of each color rect
         const legendMargin = { top: 10, right: 10, bottom: 10, left: 10 };
 
-        const legendSvg = svg.append("g")
+        const legendSvg = g.append("g")
             .attr("class", "legend")
             .attr("transform", `translate(${width - legendWidth - legendMargin.right}, ${height - 50})`); // Position legend
 
