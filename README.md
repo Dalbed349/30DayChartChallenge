@@ -19,9 +19,19 @@ All Visualizations made with d3.js
 
 ![day9](/2025/captures/09_1_Screenshot_barbell.png) [Data Source](https://catalog.data.gov/dataset/vehicle-miles-of-travel-by-functional-system-and-state-1980-2023-vm-2#sec-dates)
 
+10. Multi-Modal
+
+11. Stripes -- An abstract look at satellite image color distributions
+
+![day11](2025/Scripts/11_Stripes/Color_Satellite/output/output_cluster_brightness_sorted4.png)
+
 12. Map - USA CDC Reporting --- No physical activity for leisure.  
 
 ![day12-1](/2025/captures/Map.png)
 
 ![day12-2](/2025/captures/mapGif.gif) [Data Source](https://data.cdc.gov/api/views/hn4x-zwk7/rows.json?accessType=DOWNLOAD)
+
+13. Clusters
+
+14. 
 
